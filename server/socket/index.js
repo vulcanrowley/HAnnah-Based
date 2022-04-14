@@ -17,7 +17,7 @@ module.exports = (io) => {
     socket.on("joinRoom", (roomKey) => {
       socket.join(roomKey);
       const roomInfo = gameRooms[roomKey];
-      console.log("roomInfo", roomInfo);
+      //console.log("roomInfo", roomInfo);
       roomInfo.players[socket.id] = {
         rotation: 0,
         x: 400,
@@ -27,7 +27,7 @@ module.exports = (io) => {
 
       // update number of players
       roomInfo.numPlayers = Object.keys(roomInfo.players).length;
-
+      console.log("roomInfo", roomInfo);
       // set initial state
       socket.emit("setState", roomInfo);
 
